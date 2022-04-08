@@ -1,383 +1,770 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #333;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #333;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #333;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #333;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #000;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #000;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      What are the landscaping materials used? | Andolina Materials | Andolina
+      Landscaping Materials Indian Trail
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a href="https://andolinamaterials.com/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://g.page/AndolinaMaterialsInc?share">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+        <li class="nav-item">
+          <a
+            href="https://sites.google.com/view/landscapesupplycharlotte/Landscape-Supply-Company-Charlotte-NC"
+            >Andolina Materials</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://andolina-materials.business.site/posts/6626857957963449514"
+            >Landscape Supply Company Indian Trail</a
+          >
+        </li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section class="head">
+          <h1>What are the landscaping materials used? | Andolina Materials</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
-
-  .two-col div {
-    width: 100%;
-  }
-
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>What are the landscaping materials used? | Andolina Materials | Andolina Landscaping Materials Indian Trail
-</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://andolinamaterials.com/">Main</a></li>
-      <li class="nav-item"><a href="https://g.page/AndolinaMaterialsInc?share">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-      <li class="nav-item"><a
-          href="https://sites.google.com/view/landscapesupplycharlotte/Landscape-Supply-Company-Charlotte-NC">Andolina Materials</a></li>
-      <li class="nav-item"><a
-          href="https://andolina-materials.business.site/posts/6626857957963449514">Landscape Supply Company Indian Trail</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section class="head">
-        <h1>What are the landscaping materials used? | Andolina Materials</h1>
-      </section>
-
-      <section>
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/u4JCOAbd9xw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <br>
-        <div>
-            <p>Want to know what types of materials are used in landscaping projects? Here’s a breakdown of some of the most popular options. homeowners looking to makeover their yards.</p>
-        </div>
-        <a class="button-link"
-            href="https://andolinamaterials.com/what-are-the-landscaping-materials-used-andolina-materials/">Read Post</a>
-      </section>
-
-      <section>
-          <h2>Landscape Construction Materials | Landscaping Network</h2>
-          <p>Building materials for home landscaping projects including mulch, stone, wood chips, and more.</p>
-          <p>Natural Stone—Natural stones are popular building materials used in outdoor spaces. They come in many different colors and textures that can enhance the natural beauty of your landscape design.</p>
-      </section>
-
-      <section>
-
-        <div class="two-col">
-            <div>
-                <img src="https://lh3.googleusercontent.com/geougc/AF1QipOP7ffUg2W5EIPwVhwCDemqyEuhviLxcI99c1t5=h400-no" alt="Landscape Supply Company Indian Trail">
-            </div>
-            <div style="display:flex; flex-direction: column; justify-content:center">
-                <h2>Advantages of Using Landscape Pavers</h2>
-                <p>When deciding what type of material you want to use as the base layer of your walkway or patio, concrete is a great choice because it is easy to maintain and relatively inexpensive compared with other options. If you live in an area where freezing occurs seasonally, concrete provides good drainage even if it is not fully frost-resistant.</p>
-            </div>
-        </div>
-        <br>
-        <p>If you are installing a new concrete walkway, patio or driveway, using <a href="https://andolinamaterials.com/how-to-save-money-on-your-landscaping-projects/">landscape pavers as the border of your project</a> is an excellent way to add color and design interest to your outdoor living space. Pavers also provide several other advantages over plain concrete. Landscape pavers can be used in many different shapes, sizes, and colors to enhance the look of your outdoor living area. Concrete borders will eventually discolor around the edges due to exposure to sunlight; if that happens with your paver borders, cleaning them up is simple because you simply sweep them clean.</p>
-        <p>A walkway consisting of decorative interlocking brick pieces makes for easy access but adds beauty and elegance to any setting. Laying these materials is not difficult; however, if you are not familiar with the process it is important to get help. You can purchase pavers at <a href="https://andolinamaterials.com/guide-to-buying-landscape-supplies-online/">landscape supply stores or online</a> providers like Stone-Link.</p>
-      </section>
-
-      <section>
-          <h2>pH Compatibility</h2>
-          <p>Pavers resist alkaline (high pH) conditions that could damage other materials, making them perfect choices for walkways near entrances of buildings where cement might be exposed to high levels of foot traffic or vehicle emissions. This same resistance to alkalinity makes them ideal when used as borders around pools and spas because they will not fade from exposure to the chemicals in pool water. And, because no special tools are required to install these paving stones, they are easy to replace when they begin to show signs of wear and tear.</p>
-      </section>
-
-      <section>
-          <h2>Easy Installation</h2>
-          <p>Using pavers in landscaping is a simple process, so it is no wonder they are popular with homeowners who want to add color and beauty to their outdoor spaces without too much hassle. If you can handle basic tools such as spades and wheelbarrows, you will find them just as easy to install as paving stones. You simply lay out the design on top of your chosen surface (grass or soil), then dig the spaces where the pavers need to go and fill them with sand. Then all you have to do is carefully place each paver in its designated location and fill in behind it with more sand for stability. All told, installation should require no more than a few hours of work.</p>
-      </section>
-
-      <section>
-          <h2>More Affordable Than Other Materials</h2>
-          <p>Concrete is one of the most expensive materials you can use in landscaping, especially when it comes to homeowners who are looking to do their projects on the cheap. Concrete borders require labor-intensive work that includes applying cement with metal trowels and leveling it with hand tools. Pavers are available at your local home improvement stores or garden centers for an affordable price; even if you must purchase them online instead of onsite, stone pieces tend to be less expensive than concrete pavers. If you decide to use bricks as your paving material, they are even more budget-friendly than other options like granite pavers or slate. You can find beautiful masonry pieces at half the cost of concrete ones.</p>
-          <p>These are just a few reasons why you should consider using pavers in your garden or landscaping projects. For more information about choosing pavers for your outside living spaces, visit Andolina Materials today! We have all the tools and resources you need to find everything you need to know before starting any backyard improvement project.</p>
-      </section>
-
-      <section>
+        <section>
+          <iframe
+            width="100%"
+            height="500"
+            src="https://www.youtube.com/embed/u4JCOAbd9xw"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <br />
           <div>
-              <img src="https://andolinamaterials.com/wp-content/uploads/2021/08/We-Deliver-What-You-Need-2-1024x768.jpg" alt="Landscape Supply Company Indian Trail">
+            <p>
+              Want to know what types of materials are used in landscaping
+              projects? Here’s a breakdown of some of the most popular options.
+              homeowners looking to makeover their yards.
+            </p>
           </div>
-          <br>
+          <a
+            class="button-link"
+            href="https://andolinamaterials.com/what-are-the-landscaping-materials-used-andolina-materials/"
+            >Read Post</a
+          >
+        </section>
+
+        <section>
+          <h2>Landscape Construction Materials | Landscaping Network</h2>
+          <p>
+            Building materials for home landscaping projects including mulch,
+            stone, wood chips, and more.
+          </p>
+          <p>
+            Natural Stone—Natural stones are popular building materials used in
+            outdoor spaces. They come in many different colors and textures that
+            can enhance the natural beauty of your landscape design.
+          </p>
+        </section>
+
+        <section>
+          <div class="two-col">
+            <div>
+              <img
+                src="https://lh3.googleusercontent.com/geougc/AF1QipOP7ffUg2W5EIPwVhwCDemqyEuhviLxcI99c1t5=h400-no"
+                alt="Landscape Supply Company Indian Trail"
+              />
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <h2>Advantages of Using Landscape Pavers</h2>
+              <p>
+                When deciding what type of material you want to use as the base
+                layer of your walkway or patio, concrete is a great choice
+                because it is easy to maintain and relatively inexpensive
+                compared with other options. If you live in an area where
+                freezing occurs seasonally, concrete provides good drainage even
+                if it is not fully frost-resistant.
+              </p>
+            </div>
+          </div>
+          <br />
+          <p>
+            If you are installing a new concrete walkway, patio or driveway,
+            using
+            <a
+              href="https://andolinamaterials.com/how-to-save-money-on-your-landscaping-projects/"
+              >landscape pavers as the border of your project</a
+            >
+            is an excellent way to add color and design interest to your outdoor
+            living space. Pavers also provide several other advantages over
+            plain concrete. Landscape pavers can be used in many different
+            shapes, sizes, and colors to enhance the look of your outdoor living
+            area. Concrete borders will eventually discolor around the edges due
+            to exposure to sunlight; if that happens with your paver borders,
+            cleaning them up is simple because you simply sweep them clean.
+          </p>
+          <p>
+            A walkway consisting of decorative interlocking brick pieces makes
+            for easy access but adds beauty and elegance to any setting. Laying
+            these materials is not difficult; however, if you are not familiar
+            with the process it is important to get help. You can purchase
+            pavers at
+            <a
+              href="https://andolinamaterials.com/guide-to-buying-landscape-supplies-online/"
+              >landscape supply stores or online</a
+            >
+            providers like Stone-Link.
+          </p>
+        </section>
+
+        <section>
+          <h2>pH Compatibility</h2>
+          <p>
+            Pavers resist alkaline (high pH) conditions that could damage other
+            materials, making them perfect choices for walkways near entrances
+            of buildings where cement might be exposed to high levels of foot
+            traffic or vehicle emissions. This same resistance to alkalinity
+            makes them ideal when used as borders around pools and spas because
+            they will not fade from exposure to the chemicals in pool water.
+            And, because no special tools are required to install these paving
+            stones, they are easy to replace when they begin to show signs of
+            wear and tear.
+          </p>
+        </section>
+
+        <section>
+          <h2>Easy Installation</h2>
+          <p>
+            Using pavers in landscaping is a simple process, so it is no wonder
+            they are popular with homeowners who want to add color and beauty to
+            their outdoor spaces without too much hassle. If you can handle
+            basic tools such as spades and wheelbarrows, you will find them just
+            as easy to install as paving stones. You simply lay out the design
+            on top of your chosen surface (grass or soil), then dig the spaces
+            where the pavers need to go and fill them with sand. Then all you
+            have to do is carefully place each paver in its designated location
+            and fill in behind it with more sand for stability. All told,
+            installation should require no more than a few hours of work.
+          </p>
+        </section>
+
+        <section>
+          <h2>More Affordable Than Other Materials</h2>
+          <p>
+            Concrete is one of the most expensive materials you can use in
+            landscaping, especially when it comes to homeowners who are looking
+            to do their projects on the cheap. Concrete borders require
+            labor-intensive work that includes applying cement with metal
+            trowels and leveling it with hand tools. Pavers are available at
+            your local home improvement stores or garden centers for an
+            affordable price; even if you must purchase them online instead of
+            onsite, stone pieces tend to be less expensive than concrete pavers.
+            If you decide to use bricks as your paving material, they are even
+            more budget-friendly than other options like granite pavers or
+            slate. You can find beautiful masonry pieces at half the cost of
+            concrete ones.
+          </p>
+          <p>
+            These are just a few reasons why you should consider using pavers in
+            your garden or landscaping projects. For more information about
+            choosing pavers for your outside living spaces, visit Andolina
+            Materials today! We have all the tools and resources you need to
+            find everything you need to know before starting any backyard
+            improvement project.
+          </p>
+        </section>
+
+        <section>
+          <div>
+            <img
+              src="https://andolinamaterials.com/wp-content/uploads/2021/08/We-Deliver-What-You-Need-2-1024x768.jpg"
+              alt="Landscape Supply Company Indian Trail"
+            />
+          </div>
+          <br />
           <h2>Landscaping Materials Guide | Andolina Materials</h2>
-          <hr>
-          <br>
-          <p>Planning to do some landscaping this weekend? Make sure you have all the materials you need by checking out our guide! <a href="https://andolinamaterials.com/how-to-get-started-with-landscape-supplies/">landscaping supplies</a>.</p>
-      </section>
+          <hr />
+          <br />
+          <p>
+            Planning to do some landscaping this weekend? Make sure you have all
+            the materials you need by checking out our guide!
+            <a
+              href="https://andolinamaterials.com/how-to-get-started-with-landscape-supplies/"
+              >landscaping supplies</a
+            >.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>Concrete Supplies Andolina Materials</h2>
-          <p><a href="https://andolinamaterials.com/the-most-common-landscape-materials-people-buy/">Landscaping requires many different materials</a> that are used to build walkways, patios, walls, gardens, and more. One of the most widely used materials for <a href="https://andolinamaterials.com/planning-a-landscape-project-during-the-winter-season/">landscaping projects</a> is concrete. Concrete can be shaped into several things such as pavers, curbing, and edging. Common types of concrete include thin-set mortar for tile jobs or pre-mixed bags of concrete for simple home improvement needs. Other common forms of concrete include paver base, flagstone base, and ready-mix bagged products. Concrete is also used to create forms for blocking and bracing. Concrete can be poured into these forms, which creates strong retaining walls that are perfect for holding back dirt or gravel.</p>
-      </section>
+          <p>
+            <a
+              href="https://andolinamaterials.com/the-most-common-landscape-materials-people-buy/"
+              >Landscaping requires many different materials</a
+            >
+            that are used to build walkways, patios, walls, gardens, and more.
+            One of the most widely used materials for
+            <a
+              href="https://andolinamaterials.com/planning-a-landscape-project-during-the-winter-season/"
+              >landscaping projects</a
+            >
+            is concrete. Concrete can be shaped into several things such as
+            pavers, curbing, and edging. Common types of concrete include
+            thin-set mortar for tile jobs or pre-mixed bags of concrete for
+            simple home improvement needs. Other common forms of concrete
+            include paver base, flagstone base, and ready-mix bagged products.
+            Concrete is also used to create forms for blocking and bracing.
+            Concrete can be poured into these forms, which creates strong
+            retaining walls that are perfect for holding back dirt or gravel.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>Pavers Andolina Materials</h2>
-          <p>Pavers are one of the most commonly used landscaping materials because they are relatively easy to install. There are several different types of pavers including clay, concrete, brick, natural stone, and pre-cast pavers. Each has its unique colors and textures that make them look aesthetically pleasing in any kind of landscape design. Installation can vary depending on what product you choose, but generally speaking, they should have a 2″ – 3″ joint spacing for easy installation. Pavers must always have joints because if water is allowed to collect in the cracks, it can freeze and cause damage. Pavers made out of natural stone, such as slate or flagstone, should be sealed periodically to avoid weathering.</p>
-      </section>
+          <p>
+            Pavers are one of the most commonly used landscaping materials
+            because they are relatively easy to install. There are several
+            different types of pavers including clay, concrete, brick, natural
+            stone, and pre-cast pavers. Each has its unique colors and textures
+            that make them look aesthetically pleasing in any kind of landscape
+            design. Installation can vary depending on what product you choose,
+            but generally speaking, they should have a 2″ – 3″ joint spacing for
+            easy installation. Pavers must always have joints because if water
+            is allowed to collect in the cracks, it can freeze and cause damage.
+            Pavers made out of natural stone, such as slate or flagstone, should
+            be sealed periodically to avoid weathering.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>Retaining Wall Materials Andolina Materials</h2>
-          <p>A retaining wall is a large structure that holds back dirt behind it and keeps it from moving about. They are common in landscaping projects because they provide an aesthetically pleasing border for gardens and patios beside your home. Retaining walls come in many forms including masonry block, interlocking pre-cast concrete units, and rail systems with infill materials like wood or steel beams and panels. The most commonly used retaining wall materials include face stones (similar to brick), engineered stone, interlocking stacked stones, and stacked fieldstone.</p>
-      </section>
+          <p>
+            A retaining wall is a large structure that holds back dirt behind it
+            and keeps it from moving about. They are common in landscaping
+            projects because they provide an aesthetically pleasing border for
+            gardens and patios beside your home. Retaining walls come in many
+            forms including masonry block, interlocking pre-cast concrete units,
+            and rail systems with infill materials like wood or steel beams and
+            panels. The most commonly used retaining wall materials include face
+            stones (similar to brick), engineered stone, interlocking stacked
+            stones, and stacked fieldstone.
+          </p>
+        </section>
 
-      <section>
+        <section>
           <h2>Grass/Turf Andolina Materials</h2>
-          <p>The grass is one of the easiest and most popular <a href="https://andolinamaterials.com/landscape-supply-company-charlotte-offers-a-variety-of-landscaping-materials-to-choose-from-andolina-materials/">landscaping materials</a> because it is relatively inexpensive and easy to install. When deciding what type of grass or turf you want, you should consider your climate. If you live in an area with warm summers and cold winters, you’ll need tough grass-like buffalo grass for your lawn. Some popular types of turf include Bermuda (warm season), bluegrass (cool season), fescue (cool season), zoysia (warm season), rye (cool season), and ryegrass (both cool-/warm season).</p>
-      </section>
+          <p>
+            The grass is one of the easiest and most popular
+            <a
+              href="https://andolinamaterials.com/landscape-supply-company-charlotte-offers-a-variety-of-landscaping-materials-to-choose-from-andolina-materials/"
+              >landscaping materials</a
+            >
+            because it is relatively inexpensive and easy to install. When
+            deciding what type of grass or turf you want, you should consider
+            your climate. If you live in an area with warm summers and cold
+            winters, you’ll need tough grass-like buffalo grass for your lawn.
+            Some popular types of turf include Bermuda (warm season), bluegrass
+            (cool season), fescue (cool season), zoysia (warm season), rye (cool
+            season), and ryegrass (both cool-/warm season).
+          </p>
+        </section>
 
-      <section>
-          <h2>Concrete Pavers Charlotte NC | Stone Walls Charlotte NC | Artificial Turf Carolinas</h2>
-          <p>Andolina Materials has provided high-quality landscaping materials to Charlotte, Monroe, Albemarle, Rock Hill, Fort Mill, and surrounding areas. We are a locally owned company that provides superior customer service and is dedicated to excellence in the supply of commercial-grade landscaping materials with exceptional value. From retaining walls to stone steps, walkways to patio pavers, Andolina carries what you need – all at affordable prices!</p>
-      </section>
+        <section>
+          <h2>
+            Concrete Pavers Charlotte NC | Stone Walls Charlotte NC | Artificial
+            Turf Carolinas
+          </h2>
+          <p>
+            Andolina Materials has provided high-quality landscaping materials
+            to Charlotte, Monroe, Albemarle, Rock Hill, Fort Mill, and
+            surrounding areas. We are a locally owned company that provides
+            superior customer service and is dedicated to excellence in the
+            supply of commercial-grade landscaping materials with exceptional
+            value. From retaining walls to stone steps, walkways to patio
+            pavers, Andolina carries what you need – all at affordable prices!
+          </p>
+        </section>
 
-      <section>
-          <h2>The benefits of using the correct landscaping materials | Andolina Materials</h2>
-          <p>When you have a lot of options for your landscaping material, it can be hard to know which one will work best. Here are some tips on what types of landscaping materials to avoid and why!</p>
-          <p>When working with any kind of material, it is best to start small. You can always add more if you think that your work needs an extra touch. So take some time and decide what type of design you plan on making with your landscaping material. This will help you decide which one to use.</p>
-          <p>If the garden bed has not yet been done, it is important to consider the size before deciding on a specific landscaping material for this area. If your bed is already built, measure it so that you know how much material you need.</p>
-          <p>Not using the correct materials for the right job may damage or ruin other items in your landscape project! For example, using pressure-treated wood around plants isn’t recommended because the chemicals in the wood can be harmful to plants.</p>
-          <p>If you are using a single material such as brick, make sure that it matches with the surrounding landscape and acts like an accent rather than the main attraction. This will keep your landscaping design looking natural and beautiful!</p>
-          <p>Be careful when choosing materials for large areas of land especially if they require a lot of upkeep, such as gravel or mulch. These landscaping materials may pack down and create drainage problems or just become difficult for you to maintain over time.</p>
-          <p>If you are using branches or logs in your landscape design, make sure that they are clean with no bugs. Leaving these behind in the garden will attract unwanted pests which can be harmful to both plants and people.</p>
-          <p>Wood is one of the most popular landscaping materials used because it is beautiful yet sturdy. Wood chips are commonly used for ground cover in smaller areas while larger decks require pressure-treated wood or exotic hardwoods.</p>
-          <p>When planning out your landscape project, consider what type of material you want to use before digging! This will help prevent any unnecessary soil damage from occurring. You can always line the bottom of a bed with some extra landscaping material if needed though!</p>
-          <p>Be cautious when using treated lumber around water features, ponds, or pools because this landscaping material can leech chemicals into the water.</p>
-          <p>When using rocks for your landscape design, make sure to use them sparingly! Rocks are very heavy and may damage or ruin other items in your project if you start piling them too high. If rocks are your main focus, keep it as minimal as possible.</p>
-          <p>To complete any garden look, do not forget about landscaping materials like mulch and wood chips around trees, shrubs, flowers, and other plants. These are essential to completing any natural-looking garden design.</p>
-          <p>If you need professional help at any time please call us here at Andolina Materials we will be happy to assist you in any way possible with your landscaping needs.</p>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=4178262789221165029">Find Us Here!</a>
-      </section>
+        <section>
+          <h2>
+            The benefits of using the correct landscaping materials | Andolina
+            Materials
+          </h2>
+          <p>
+            When you have a lot of options for your landscaping material, it can
+            be hard to know which one will work best. Here are some tips on what
+            types of landscaping materials to avoid and why!
+          </p>
+          <p>
+            When working with any kind of material, it is best to start small.
+            You can always add more if you think that your work needs an extra
+            touch. So take some time and decide what type of design you plan on
+            making with your landscaping material. This will help you decide
+            which one to use.
+          </p>
+          <p>
+            If the garden bed has not yet been done, it is important to consider
+            the size before deciding on a specific landscaping material for this
+            area. If your bed is already built, measure it so that you know how
+            much material you need.
+          </p>
+          <p>
+            Not using the correct materials for the right job may damage or ruin
+            other items in your landscape project! For example, using
+            pressure-treated wood around plants isn’t recommended because the
+            chemicals in the wood can be harmful to plants.
+          </p>
+          <p>
+            If you are using a single material such as brick, make sure that it
+            matches with the surrounding landscape and acts like an accent
+            rather than the main attraction. This will keep your landscaping
+            design looking natural and beautiful!
+          </p>
+          <p>
+            Be careful when choosing materials for large areas of land
+            especially if they require a lot of upkeep, such as gravel or mulch.
+            These landscaping materials may pack down and create drainage
+            problems or just become difficult for you to maintain over time.
+          </p>
+          <p>
+            If you are using branches or logs in your landscape design, make
+            sure that they are clean with no bugs. Leaving these behind in the
+            garden will attract unwanted pests which can be harmful to both
+            plants and people.
+          </p>
+          <p>
+            Wood is one of the most popular landscaping materials used because
+            it is beautiful yet sturdy. Wood chips are commonly used for ground
+            cover in smaller areas while larger decks require pressure-treated
+            wood or exotic hardwoods.
+          </p>
+          <p>
+            When planning out your landscape project, consider what type of
+            material you want to use before digging! This will help prevent any
+            unnecessary soil damage from occurring. You can always line the
+            bottom of a bed with some extra landscaping material if needed
+            though!
+          </p>
+          <p>
+            Be cautious when using treated lumber around water features, ponds,
+            or pools because this landscaping material can leech chemicals into
+            the water.
+          </p>
+          <p>
+            When using rocks for your landscape design, make sure to use them
+            sparingly! Rocks are very heavy and may damage or ruin other items
+            in your project if you start piling them too high. If rocks are your
+            main focus, keep it as minimal as possible.
+          </p>
+          <p>
+            To complete any garden look, do not forget about landscaping
+            materials like mulch and wood chips around trees, shrubs, flowers,
+            and other plants. These are essential to completing any
+            natural-looking garden design.
+          </p>
+          <p>
+            If you need professional help at any time please call us here at
+            Andolina Materials we will be happy to assist you in any way
+            possible with your landscaping needs.
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=4178262789221165029"
+            >Find Us Here!</a
+          >
+        </section>
 
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13059.05111452934!2d-80.6541752!3d35.0876595!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x39fc2bde91c2a7e5!2sAndolina%20Landscaping%20Materials%20Indian%20Trail!5e0!3m2!1sen!2sph!4v1649381602183!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Landscape%20Supply%20Company</iframe
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13059.05111452934!2d-80.6541752!3d35.0876595!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x39fc2bde91c2a7e5!2sAndolina%20Landscaping%20Materials%20Indian%20Trail!5e0!3m2!1sen!2sph!4v1649381602183!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Landscape%20Supply%20Company</iframe>
-      </section>
-      
-      <section>
-        <iframe src="https://www.tripadvisor.com.ph/Attractions-g49236-Activities-Indian_Trail_North_Carolina.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.tripadvisor.com.ph/Attractions-g49236-Activities-Indian_Trail_North_Carolina.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.fox46.com/news/u-s/north-carolina/union-county/indian-trail/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.fox46.com/news/u-s/north-carolina/union-county/indian-trail/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://andolinamaterials.com/" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://andolinamaterials.com/"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://andolina-materials.business.site/posts/6626857957963449514" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://andolina-materials.business.site/posts/6626857957963449514"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="http://www.pearltrees.com/andolina_123" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="http://www.pearltrees.com/andolina_123"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name=""
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <!-- WEBSITE EMBED -->
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/andolinamaterials-02-22/"
+            >https://rank-fortress-digital-agency.github.io/andolinamaterials-02-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://andolinamaterials-02-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://andolinamaterials-02-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a target="_bLank" href="https://stately-bunny-26027e.netlify.app/"
+            >https://stately-bunny-26027e.netlify.app/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://sites.google.com/view/landscapesupplycharlotte/Landscape-Supply-Company-Charlotte-NC"
+            >https://sites.google.com/view/landscapesupplycharlotte/Landscape-Supply-Company-Charlotte-NC</a
+          ><br />
+        </section>
 
-        <!-- MEDIA ROOM -->
+        <section>
+          <!-- WEBSITE EMBED -->
 
-        <!-- BUSINESS SITE -->
-       
-        <!-- PEARL TREES -->
-        
-        <!-- CLOUD STACK SITE -->
-        
-      </section>
+          <!-- MEDIA ROOM -->
 
+          <!-- BUSINESS SITE -->
+
+          <!-- PEARL TREES -->
+
+          <!-- CLOUD STACK SITE -->
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/AndolinaMaterialsInc"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=4178262789221165029"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCUNghs1_MPj3b6Bf8J90gRg"
+                >Youtube</a
+              >
+            </li>
+            <li>
+              <a href="http://www.pearltrees.com/andolina_123">Pearltrees</a>
+            </li>
+            <li><a href="#">Calendar</a></li>
+            <li>
+              <a
+                href="https://sites.google.com/view/landscapesupplycharlotte/Landscape-Supply-Company-Charlotte-NC"
+                >Google Site</a
+              >
+            </li>
+            <li>
+              <a href="https://andolina123.livejournal.com/383.html">About</a>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://andolinamaterials.com/">Main</a></li>
+            <li>
+              <a href="https://g.page/AndolinaMaterialsInc?share">Maps</a>
+            </li>
+            <li><a href="./media.html">Media</a></li>
+            <li>
+              <a
+                href="https://andolina-materials.business.site/posts/6626857957963449514"
+                >Landscape Supply Company Indian Trail</a
+              >
+            </li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/AndolinaMaterialsInc">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=4178262789221165029">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UCUNghs1_MPj3b6Bf8J90gRg">Youtube</a></li>
-          <li><a href="http://www.pearltrees.com/andolina_123">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="https://sites.google.com/view/landscapesupplycharlotte/Landscape-Supply-Company-Charlotte-NC">Google Site</a></li>
-          <li><a href="https://andolina123.livejournal.com/383.html">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://andolinamaterials.com/">Main</a></li>
-          <li><a href="https://g.page/AndolinaMaterialsInc?share">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-          <li><a href="https://andolina-materials.business.site/posts/6626857957963449514">Landscape Supply Company Indian Trail</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
